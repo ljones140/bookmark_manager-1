@@ -9,7 +9,6 @@ class Bookmark_Manager < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    # 'Hello Bookmark_Manager!'
     erb :index
   end
 
@@ -49,7 +48,6 @@ class Bookmark_Manager < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
-
 
 
   # start the server if ruby file executed directly
