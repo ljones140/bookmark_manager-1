@@ -18,8 +18,6 @@ feature 'Viewing links' do
   end
 
 
-
-
   scenario 'I can see existing links on the links page' do
     visit '/links'
     expect(page.status_code).to eq 200
