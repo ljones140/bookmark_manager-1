@@ -24,4 +24,14 @@ feature 'Adding tags' do
     link = Link.first
     expect(link.tags.map(&:name)).to include('education', 'ruby')
   end
+
+  scenario 'I can add multiple tags to a new link' do
+    visit '/links/new'
+    fill_in 'url', with: 'http://www.makersacademy.com'
+    fill_in 'title', with: 'Makers Academy'
+    click_button 'Create link'
+    link = Link.first
+    expect(link.tags.map(&:name)).to be_empty
+  end
+
 end

@@ -14,8 +14,7 @@ class Bookmark_Manager < Sinatra::Base
 
   post '/links' do
     tags = params[:tag].split(/\s/).map { |tag| Tag.first_or_create(name: tag) }
-    link = Link.new(url: params[:url], title: params[:title], tags: tags)
-    link.save
+    Link.create(url: params[:url], title: params[:title], tags: tags)
     redirect to('/links')
   end
 
@@ -24,8 +23,8 @@ class Bookmark_Manager < Sinatra::Base
   end
 
   get '/tags/:name' do
-      tag = (Tag.first(name: params[:name]))
-      @links = tag ? tag.links : []
+    tag = (Tag.first(name: params[:name]))
+    @links = tag ? tag.links : []
     erb :'links/index'
   end
 
