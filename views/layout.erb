@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <link rel="stylesheet" href="/public/bookmark.css" type="text/css" />
   <title>Book Manager</title>
 </head>
 <body>
   <% if current_user %>
     Welcome, <%= current_user.email %>
   <% end %>
+  <form method="post" action="/sessions" >
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Sign out" >
+  </form>
   <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
   <ul id="errors">
@@ -14,6 +19,11 @@
       <li><%= error %></li>
     <% end %>
   </ul>
+  <% end %>
+  <% if flash[:notice] %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
   <% end %>
   <%= yield %>
 </body>

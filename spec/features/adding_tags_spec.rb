@@ -33,5 +33,4 @@ feature 'Adding tags' do
     link = Link.first
     expect(link.tags.map(&:name)).to be_empty
   end
-
 end
