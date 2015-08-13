@@ -12,4 +12,31 @@ FactoryGirl.define do
       email ''
     end
   end
+
+  factory :tag do
+    name "education"
+  end
+
+  factory :link do
+      url 'http://www.makersacademy.com'
+      title 'Makers Academy'
+      tags {[FactoryGirl.create(:tag)]}
+  end
+
+
+    # trait :education do
+    #   name "education"
+    # end
+
+    # trait :search do
+    #   name "search"
+    # end
+
+    # trait :bubble do
+    #   name "bubble"
+    # end
+
 end
+
+
+

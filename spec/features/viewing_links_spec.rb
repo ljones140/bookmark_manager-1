@@ -6,6 +6,9 @@ feature 'Viewing links' do
     Link.create(url: 'http://www.makersacademy.com',
                 title: 'Makers Academy',
                 tags: [Tag.first_or_create(name: 'education')])
+
+
+
     Link.create(url: 'http://www.google.com',
                 title: 'google',
                 tags: [Tag.first_or_create(name: 'search')])
@@ -18,7 +21,15 @@ feature 'Viewing links' do
   end
 
 
+
+  # let(:link) { create(:link) }
+  # Factory(:link, :tags => [Factory(:tag)])
+  # let(:tag) { create(:tag) }
+  #  FactoryGirl.create(:link, :tags => [:tag])
+
+
   scenario 'I can see existing links on the links page' do
+
     visit '/links'
     expect(page.status_code).to eq 200
     within 'ul#links' do

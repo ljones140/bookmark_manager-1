@@ -3,7 +3,6 @@ require 'spec_helper'
 feature 'User sign up' do
 
   let!(:user) { build(:user) }
-
   let(:user_wrong_confirmation) { build(:user_wrong_confirmation) }
   let(:user_no_email) { build(:user_no_email) }
 
@@ -30,7 +29,6 @@ feature 'User sign up' do
   end
 
   scenario 'I cannot sign up with an exisiting email' do
-    user_new = create(:user)
     sign_up_as(user)
     expect { sign_up_as(user) }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')

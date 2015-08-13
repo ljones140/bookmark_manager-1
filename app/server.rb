@@ -1,9 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require './data_mapper_setup'
 require_relative './helpers/apphelpers.rb'
 
 class Bookmark_Manager < Sinatra::Base
+
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
 
   use Rack::MethodOverride
 
