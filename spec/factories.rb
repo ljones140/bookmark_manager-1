@@ -13,29 +13,29 @@ FactoryGirl.define do
     end
   end
 
-  factory :tag do
-    name "education"
-  end
-
   factory :link do
-      url 'http://www.makersacademy.com'
-      title 'Makers Academy'
-      tags {[FactoryGirl.create(:tag)]}
+    url 'http://www.makersacademy.com'
+    title 'Makers Academy'
+
+    factory :link_bubble do
+      url 'http://www.bubble-bobble.com'
+      title 'Bubble Bobble'
+    end
+
+    factory :link_zombo do
+      url 'http://www.zombo.com'
+      title 'This is Zombocom'
+    end
   end
 
 
-    # trait :education do
-    #   name "education"
-    # end
+  factory :tag do
+      name "education"
 
-    # trait :search do
-    #   name "search"
-    # end
-
-    # trait :bubble do
-    #   name "bubble"
-    # end
-
+    factory :tag_bubble do
+      name "bubbles"
+    end
+  end
 end
 
 
