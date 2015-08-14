@@ -4,6 +4,7 @@ module BookMark
 
       include AppHelpers
 
+
       # register Sinatra::Partial
       # set :partial_template_engine, :erb
 

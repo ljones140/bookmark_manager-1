@@ -12,6 +12,8 @@ require './app/controllers/session'
 require './app/controllers/tag'
 require './app/controllers/home'
 
+include BookMark::Models
+
 module BookMark
 
   class Bookmark_Manager < Sinatra::Base
